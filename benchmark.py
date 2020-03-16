@@ -58,11 +58,29 @@ def run(solver=0, file=0):
             file.write( "%lf \t %lf \t %lf \t %d \n\r " % (t3, tt3,c3,knp.check_vio(p3)))
 
 
-def test(param, pfrom, pto):
+def test(solver,param, pfrom, step,pto):
     
     f= open("benchmark.txt","w+")
-    
-    run(file=f)
+    if(solver == 'pyswarms'):
+        nsolver=1
+    elif (solver == 'pso'):
+        nsolver=2
+    elif (solver == 'psojax'):
+        nsolver=3
+    else:
+        nsolver=0
+    i = pfrom
+    while (i<=pto):
+        if (param == 'items'):
+            params.items=i
+            params.d=i
+            
+        
+        else:
+            print("ERROR: test param not found")
+
+        run(nsolver,f)
+        i+=step
     
     f.close() 
 
@@ -73,8 +91,8 @@ if __name__ == "__main__":
 
     #run()
     
-    
-    test(1,2,3)
+    #run(2)  
+    test('pso','items',25,5,50)
     """
 
     knp = knapspack.Knapspack()
