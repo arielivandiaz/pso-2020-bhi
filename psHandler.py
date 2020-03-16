@@ -39,3 +39,21 @@ def using_bounds(args):
     cost, pos = optimizer.optimize(args.fn, iters=args.i)
     
     return time.time() - start, cost, pos
+
+
+def discrete (args):
+    N = args.items
+    P = args.n
+
+    options = {'c1': args.options['c1'], 'c2': args.options['c2'],
+               'w': args.options['w'], 'k': args.options['k'], 'p': args.options['p']}
+
+    optimizer = ps.discrete.binary.BinaryPSO(n_particles=P, dimensions=N, options=options, init_pos=None,
+                                             velocity_clamp=None, vh_strategy='unmodified', ftol=0)
+
+    start = time.time()    
+    [solFO, solX] = optimizer.optimize(args.fn, iters=args.i)
+    
+    return time.time() - start, solFO, solX
+    
+    
