@@ -60,7 +60,7 @@ def run(solver=0, file=0):
 
 def test(solver,param, pfrom, step,pto):
     
-    f= open("benchmark.txt","w+")
+    f= open("benchmark.txt","a+")
     if(solver == 'pyswarms'):
         nsolver=1
     elif (solver == 'pso'):
@@ -89,7 +89,7 @@ def test(solver,param, pfrom, step,pto):
 
 def print_header(msg):
 
-    f= open("benchmark.txt","w+")
+    f= open("benchmark.txt","a+")
     f.write(msg)
     f.write("iters : %d\n" % params.i)
     f.write("items : %d\n" % params.items)
@@ -124,14 +124,14 @@ if __name__ == "__main__":
     print("2")
     print_header("iters de 100 a 2000 PS")
     test('pyswarms','iters',500,500,2500)
-    pprint_header("iters de 100 a 2000 PSO")
+    print_header("iters de 100 a 2000 PSO")
     test('pso','iters',500,500,2500)
 
     reset_params()
     print("3")
     print_header("rest de 0 a 20 PS")
     test('pyswarms','rest',0,1,20)
-    pprint_header("rest de 0 a 20 PSO")
+    print_header("rest de 0 a 20 PSO")
     test('pso','rest',0,1,20)
 
 
@@ -139,6 +139,6 @@ if __name__ == "__main__":
     print("4")
     print_header("particles de 5 a 150 PS")
     test('pyswarms','n',5,5,150)
-    pprint_header("particles de 5 a 150 PSO")
+    print_header("particles de 5 a 150 PSO")
     test('pso','n',5,5,150)
    
