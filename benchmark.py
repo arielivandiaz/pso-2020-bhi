@@ -114,27 +114,29 @@ if __name__ == "__main__":
     #Run pyswars, pso & psojax:
     #run() #check verbose ==1
 
+    print("1")
     print_header("items de 25 a 150 PS")
-    test('pyswarms','items',25,5,150)
+    test('pyswarms','items',25,25,150)
     print_header("items de 25 a 150 PSO")
-    test('pso','items',25,5,150)
+    test('pso','items',25,25,150)
 
     reset_params()
-
+    print("2")
     print_header("iters de 100 a 2000 PS")
-    test('pyswarms','iters',100,100,2000)
+    test('pyswarms','iters',500,500,2500)
     pprint_header("iters de 100 a 2000 PSO")
-    test('pso','iters',100,100,2000)
+    test('pso','iters',500,500,2500)
 
     reset_params()
-
+    print("3")
     print_header("rest de 0 a 20 PS")
     test('pyswarms','rest',0,1,20)
     pprint_header("rest de 0 a 20 PSO")
     test('pso','rest',0,1,20)
 
-    reset_params()
 
+    reset_params()
+    print("4")
     print_header("particles de 5 a 150 PS")
     test('pyswarms','n',5,5,150)
     pprint_header("particles de 5 a 150 PSO")
